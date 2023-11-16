@@ -1,4 +1,5 @@
 /// Struct representing an Instruction
+#[derive(Clone)]
 pub struct Instruction {
     /// 64-Bit encoding of the Instruction
     encoding: u64,
@@ -74,19 +75,19 @@ impl InstructionSet {
     ///
     /// # Arguments
     ///
-    /// * `name` - Box containing the string slice containing the name
+    /// * `name` - A boxed string slice (`Box<str>`) containing the name of the instruction to find. This method uses `Box<str>` for potential memory benefits when dealing with large amounts of strings.
     ///
     /// # Example
     /// ```
     /// let insSet = InstructionSet::new();
-    /// let insOpt = insSet::get_instruction_by_name("NOP");
+    /// let insOpt = insSet.get_instruction_by_name(Box::from("NOP"));
     /// ```
     pub fn get_instruction_by_name(&self, name: Box<str>) -> Option<Instruction> {
-        for instruction in self.instructions {
-            if instruction.name == name {
-                return Some(instruction)
-            };
+        for instruction in &self.instructions {
+            if instruction.name.as_str() == &*name {
+                return Some(instruction.clone());
+            }
         }
-        return None;
+        None
     }
 }
