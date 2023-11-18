@@ -49,6 +49,7 @@ impl Instruction {
 
 }
 
+#[derive(Clone)]
 pub struct InstructionSet {
     instructions: Vec<Instruction>,
     instruction_number: u64,
@@ -99,7 +100,7 @@ impl InstructionSet {
 
     pub fn add_instruction(&mut self, ins: Instruction) -> bool {
         match self.get_instruction_by_name(ins.get_name()) {
-            None => {self.instructions.push(ins); return true}
+            None => {self.instructions.push(ins); self.instruction_number += 1; return true}
             Some(_) => {return false}
         }
     }
