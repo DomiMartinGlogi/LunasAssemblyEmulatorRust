@@ -86,14 +86,21 @@ impl InstructionSet {
     /// use lear_instruction_set::instruction_set::InstructionSet;
     ///
     /// let insSet = InstructionSet::new();
-    /// let insOpt = insSet.get_instruction_by_name(Box::from("NOP"));
+    /// let insOpt = insSet.get_instruction_by_name("NOP".to_string());
     /// ```
-    pub fn get_instruction_by_name(&self, name: Box<str>) -> Option<Instruction> {
+    pub fn get_instruction_by_name(&self, name: String) -> Option<Instruction> {
         for instruction in &self.instructions {
             if instruction.name.as_str() == &*name {
                 return Some(instruction.clone());
             }
         }
         None
+    }
+
+    pub fn add_instruction(&mut self, ins: Instruction) -> bool {
+        match self.get_instruction_by_name(ins.get_name()) {
+            None => {self.instructions.push(ins); return true}
+            Some(_) => {return false}
+        }
     }
 }
