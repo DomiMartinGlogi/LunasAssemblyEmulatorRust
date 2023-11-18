@@ -1,5 +1,7 @@
 # Luna's Assembly Emulator
 
+[![Rust](https://github.com/DomiMartinGlogi/LunasAssemblyEmulatorRust/actions/workflows/rust.yml/badge.svg)](https://github.com/DomiMartinGlogi/LunasAssemblyEmulatorRust/actions/workflows/rust.yml)
+
 ## General
 
 Goal of this Project is to implement a simple custom Assembly Language, Compiler and Architecture
