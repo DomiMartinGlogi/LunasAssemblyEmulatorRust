@@ -20,6 +20,8 @@ impl Instruction {
     ///
     /// # Example
     /// ```
+    /// use lear_instruction_set::instruction_set::Instruction;
+    ///
     /// let ins = Instruction::new(0x00, "NOP", 0);
     /// ```
     pub fn new(encoding: u64, name: &str, num_arg: u8) -> Instruction {
@@ -62,6 +64,8 @@ impl InstructionSet {
     ///
     /// # Example
     /// ```
+    /// use lear_instruction_set::instruction_set::InstructionSet;
+    ///
     /// let insSet = InstructionSet::new();
     /// ```
     pub fn new() -> InstructionSet {
@@ -79,6 +83,8 @@ impl InstructionSet {
     ///
     /// # Example
     /// ```
+    /// use lear_instruction_set::instruction_set::InstructionSet;
+    ///
     /// let insSet = InstructionSet::new();
     /// let insOpt = insSet.get_instruction_by_name(Box::from("NOP"));
     /// ```

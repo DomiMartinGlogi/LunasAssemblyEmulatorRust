@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "InstructionSet"
+name = "lear_instruction_set"
 version = "0.1.0"
