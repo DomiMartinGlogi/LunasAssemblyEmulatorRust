@@ -1,14 +1,17 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+#![doc = include_str!("../README.md")]
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+use std::fs::File;
+use std::io::Read;
+use std::path::Path;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+pub fn compile(path_string: String) {
+    let source_path = Path::new(path_string.as_str());
+    let dis = source_path.display();
+    let mut file = match File::open(&source_path) {
+        Ok(file) => {file}
+        Err(cause) => {panic!("Couldn't open {}: {}", dis, cause)}
+    };
+
+
+
 }
