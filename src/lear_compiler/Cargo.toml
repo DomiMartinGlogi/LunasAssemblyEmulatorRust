@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 lear_instruction_set = { path = "../lear_instruction_set"}
+regex = "1.10.2"
